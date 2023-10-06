@@ -17,7 +17,6 @@ const UserHeader = () => {
         break;
       default:
         setTitle('Minha Conta');
-        break;
     }
   }, [pathname]);
 
