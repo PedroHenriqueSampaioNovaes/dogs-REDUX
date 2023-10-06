@@ -7,7 +7,7 @@ import Error from '../Helper/Error';
 import { useNavigate } from 'react-router-dom';
 import Head from '../Helper/Head';
 import { useDispatch, useSelector } from 'react-redux';
-import { photoPost } from '../../store/photoPost';
+import { photoPost, resetPhotoPostState } from '../../store/photoPost';
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -20,12 +20,14 @@ const UserPhotoPost = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    dispatch(resetPhotoPostState());
+
     if (data) navigate('/conta');
-  }, [data, navigate]);
+  }, [data, navigate, dispatch]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    
+
     const formData = new FormData();
     formData.append('img', img.raw);
     formData.append('nome', nome.value);

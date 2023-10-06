@@ -7,5 +7,6 @@ const slice = createAsyncSlice({
 });
 
 export const photoPost = slice.asyncAction;
+export const { resetState: resetPhotoPostState } = slice.actions;
 
 export default slice.reducer;
